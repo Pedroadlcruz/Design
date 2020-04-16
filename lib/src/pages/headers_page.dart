@@ -38,6 +38,7 @@ class HeadersPage extends StatelessWidget {
           // ),
            HeaderCurvo2(),
            HeaderCurvo1(),
+           
           
         ],
       ),
