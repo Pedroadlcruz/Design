@@ -25,6 +25,7 @@ AnimationController controller;
 
 Animation<double> rotacion;
 Animation<double> opacidad;
+Animation<double> opacidadOut;
 Animation<double> moverDerecha;
 Animation<double> agrandar;
 
@@ -82,8 +83,9 @@ controller.forward();
       builder: (BuildContext context, Widget childRectangulo) {
 
   //  print('Rotacion:' + rotacion.value.toString());
-  print('Opacidad: ${opacidad.value}');
-  print('Rotacion: ${rotacion.value}');
+  // print('Opacidad: ${opacidad.value}');
+  // print('Rotacion: ${rotacion.value}');
+  // print('Status: ${controller.status}');
 
         return Transform.translate(
           offset: Offset(moverDerecha.value, 0),
