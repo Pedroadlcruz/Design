@@ -44,6 +44,10 @@ Animation<double> agrandar;
       CurvedAnimation(parent: controller , curve:  Interval(0, 0.25,curve: Curves.easeOut))
     );
 
+    opacidadOut = Tween(begin: 1.0, end: 0.0).animate(
+      CurvedAnimation(parent: controller , curve:  Interval(0.75, 1.0,curve: Curves.easeOut))
+    );
+
     moverDerecha = Tween(begin: 0.0, end: 200.0).animate(
       CurvedAnimation(parent: controller , curve:  Curves.easeOut)
     );
@@ -95,7 +99,9 @@ controller.forward();
               opacity: opacidad.value,
               child: Transform.scale(
                 scale: agrandar.value,
-                child: childRectangulo
+                child: Opacity(
+                  opacity: opacidadOut.value,
+                  child: childRectangulo)
                 ),
             ),
              ),
