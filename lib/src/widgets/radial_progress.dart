@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -116,6 +117,7 @@ final double grosorPrimario;
     final paintArc = new Paint()
     ..strokeWidth = grosorPrimario
     ..color       = colorPrimario
+    ..strokeCap   = StrokeCap.round
     ..style       = PaintingStyle.stroke;
 
     //Parte que se debera ir llenn\ando
