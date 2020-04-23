@@ -110,8 +110,8 @@ final double grosorPrimario;
 
    Offset pointCircle(double t) {
 
-    double dx = size.width * 0.5 + radius * cos(1.3527 + pi - t * (pi/180));
-    double dy = size.height * 0.5 + radius * sin(1.3527 + pi - t * (pi/180));
+    double dx = size.width * 0.5 + radius *  cos(1.3527 + pi - t * (pi/180));
+    double dy = size.height * 0.5 + radius * - sin(1.3527 + pi - t * (pi/180));
 
      return Offset(dx, dy);
    }
