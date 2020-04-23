@@ -1,7 +1,9 @@
 import 'dart:math';
+import 'dart:ui' as ui;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 
 class RadialProgress extends StatefulWidget {
@@ -80,6 +82,8 @@ void dispose() {
   }
 }
 
+
+
 class _MiRadialProgress extends CustomPainter{
 
 final porcentaje;
@@ -99,19 +103,45 @@ final double grosorPrimario;
 
   @override
   void paint(Canvas canvas, Size size) {
-
+//  final Offset center = new Offset(size.width * 0.5, size.height / 2);
+   final double radius  = min(size.width * 0.5 , size.height * 0.5);
+   final pointMode = ui.PointMode.points;
   
+
+   Offset pointCircle(double t) {
+
+    double dx = size.width * 0.5 + radius * cos(1.3527 + pi - t * (pi/180));
+    double dy = size.height * 0.5 + radius * sin(1.3527 + pi - t * (pi/180));
+
+     return Offset(dx, dy);
+   }
+
+   List<Offset> pointList(double cant) {
+     
+     double p ;
+     List<Offset> points = [];
+
+     for (var i = 0; i <= cant; i++) {
+       p = 12.0 * i;
+        print(p);
+      points.add(pointCircle(p)) ;
+     }
+    
+      return points;
+ }
+   
 
 //Circulo Completado
     final paint = new Paint()
     ..strokeWidth = grosorSecundario
     ..color       = colorSecundario
+    ..strokeCap   = StrokeCap.round
     ..style       = PaintingStyle.stroke;
 
-   final Offset center = new Offset(size.width * 0.5, size.height / 2);
-   final double radius  = min(size.width * 0.5 , size.height * 0.5);
+   final pointsBase = pointList(30);
 
-    canvas.drawCircle(center, radius, paint);
+    // canvas.drawCircle(center, radius, paint);
+    canvas.drawPoints(pointMode, pointsBase, paint);
 
     //Arco
     final paintArc = new Paint()
@@ -120,15 +150,13 @@ final double grosorPrimario;
     ..strokeCap   = StrokeCap.round
     ..style       = PaintingStyle.stroke;
 
-    //Parte que se debera ir llenn\ando
-    double arcAngle =2 * pi * (porcentaje/100);
-    canvas.drawArc(
-    Rect.fromCircle(center:  center, radius: radius), 
-     - pi / 2, 
-    arcAngle, 
-    false, 
-    paintArc
-    );
+
+
+  // final pointMode = ui.PointMode.points;
+  final points = pointList(porcentaje);
+ 
+  canvas.drawPoints(pointMode, points, paintArc);
+
   }
 
   @override

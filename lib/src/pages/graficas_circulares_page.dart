@@ -18,8 +18,8 @@ double porcentaje = 0.0;
       floatingActionButton: FloatingActionButton(
         onPressed: (){
           setState(() {
-            porcentaje +=10;
-            if (porcentaje > 100) {
+            porcentaje ++;
+            if (porcentaje > 30) {
               porcentaje = 0;
             }
           });
@@ -27,25 +27,9 @@ double porcentaje = 0.0;
         child: Icon(Icons.refresh),
 
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              CustomRadialProgress(porcentaje: porcentaje, color:  Colors.blueAccent,),
-              CustomRadialProgress(porcentaje: porcentaje, color: Colors.redAccent,),
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              CustomRadialProgress(porcentaje: porcentaje, color: Colors.pinkAccent,),
-              CustomRadialProgress(porcentaje: porcentaje, color: Colors.purpleAccent,),
-            ],
-          ),
-        ],
-      ),
+      body: Center(
+        child: CustomRadialProgress(porcentaje: porcentaje, color: Colors.blueAccent,),
+      )
    );
   }
 }
@@ -66,14 +50,14 @@ class CustomRadialProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width:  180,
-      height: 180,
+      width:  350,
+      height: 350,
       // color: Colors.red,
       child: RadialProgress(porcentaje: porcentaje,
        colorPrimario: color,
-       colorSecundario: Colors.black,
-       grosorSecundario: 4,
-       grosorPrimario: 10,
+       colorSecundario: Colors.grey,
+       grosorSecundario: 10,
+       grosorPrimario: 15,
        ),
       // child: Text('$porcentaje %', style: TextStyle(fontSize: 50.0),)
       );
