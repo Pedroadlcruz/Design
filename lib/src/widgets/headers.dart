@@ -521,3 +521,5 @@ class _HeaderCurvoPainter2 extends CustomPainter{
   }
 
 }
+
+
