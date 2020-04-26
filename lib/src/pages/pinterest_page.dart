@@ -67,7 +67,7 @@ class _PinterestGridState extends State<PinterestGrid> {
 final List <int>items = List.generate(200, (i)=> i);
 
 ScrollController controller =  new ScrollController();
-double scrollAnterior = 0;
+double scrollAnterior = 0.0;
 @override
   void initState() {
 
