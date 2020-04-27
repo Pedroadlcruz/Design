@@ -2,7 +2,10 @@
 // import 'package:disenos/src/pages/headers_page.dart';
 // import 'package:disenos/src/retos/cuadrado_animado_page.dart';
 // import 'package:disenos/src/pages/pinterest_page.dart';
-import 'package:disenos/src/pages/sliver_list_page.dart';
+// import 'package:disenos/src/pages/navegacion_page.dart';
+import 'package:disenos/src/pages/pagina1_page.dart';
+// import 'package:disenos/src/pages/twiter_page.dart';
+// import 'package:disenos/src/pages/sliver_list_page.dart';
 // import 'package:disenos/src/pages/graficas_circulares_page.dart';
 // import 'package:disenos/src/pages/emergency_page.dart';
 
@@ -16,7 +19,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Diseños App',
-      home: SliverListPage(),
+      // home: TwiterPage(),
+      home: Pagina1Page(),
     );
   }
 }
